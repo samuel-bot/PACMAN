@@ -129,7 +129,7 @@ class Ghost {
     }
   }
 
-  calculateNewDirection() {
+  calculateNewDirection(map, destX, destY) {
     let mp = [];
     for (let i = 0; i < map.length; i++) {
       mp[i] = map[i].slice();
@@ -144,6 +144,7 @@ class Ghost {
     ];
     while (queue.length > 0) {
       let poped = queue.shift();
+      // error is here
       if (poped.x == destX && poped.y == destY) {
         return poped.moves[0];
       } else {
