@@ -79,7 +79,7 @@ let update = () => {
     ghosts[i].moveProcess();
   }
 
-  if(pacman.checkGhostCollision()) {
+  if(pacman.checkGhostCollision(ghosts)) {
     restartGame();
   }
 };

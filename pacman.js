@@ -81,12 +81,12 @@ class Pacman {
     return false;
   }
 
-  checkGhostCollision() {
+  checkGhostCollision(ghosts) {
     for (let i = 0; i < ghosts.length; i++) {
-      let ghosts = ghosts[i];
+      let ghost = ghosts[i];
       if (
-        ghosts.getMapX() == this.getMapX() &&
-        ghosts.getMapY() == this.getMapY()
+        ghost.getMapX() == this.getMapX() &&
+        ghost.getMapY() == this.getMapY()
       ) {
         return true;
       }
