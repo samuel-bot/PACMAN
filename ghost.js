@@ -115,9 +115,9 @@ class Ghost {
       parseInt(this.target.y / oneBlockSize)
     );
 
-    if(typeof this.direction == "undefined") {
-        this.direction = tempDirection
-        return
+    if (typeof this.direction == "undefined") {
+      this.direction = tempDirection;
+      return;
     }
 
     this.moveForwards();
@@ -149,8 +149,8 @@ class Ghost {
       } else {
         mp[poped.y][poped.x] = 1;
         let neighborList = this.addNeighbors(poped, mp);
-        for(let i = 0; i < neighborList.length; i++) {
-            queue.push(neighborList[i]);
+        for (let i = 0; i < neighborList.length; i++) {
+          queue.push(neighborList[i]);
         }
       }
     }

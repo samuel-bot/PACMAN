@@ -24,15 +24,12 @@ class Pacman {
   }
 
   eat() {
-    for(let i = 0; i < map.length; i++) {
-      for(let j = 0 ; j <  map[0].length; j++) {
-        if(map [i][j] == 2 &&
-          this.getMapX() == j && 
-          this.getMapY() == i
-          ){
-             map[i][j] = 3
-             score++;
-          }
+    for (let i = 0; i < map.length; i++) {
+      for (let j = 0; j < map[0].length; j++) {
+        if (map[i][j] == 2 && this.getMapX() == j && this.getMapY() == i) {
+          map[i][j] = 3;
+          score++;
+        }
       }
     }
   }
@@ -84,7 +81,18 @@ class Pacman {
     return false;
   }
 
-  checkGhostCollision() {}
+  checkGhostCollision() {
+    for (let i = 0; i < ghosts.length; i++) {
+      let ghosts = ghosts[i];
+      if (
+        ghosts.getMapX() == this.getMapX() &&
+        ghosts.getMapY() == this.getMapY()
+      ) {
+        return true;
+      }
+    }
+    return false;
+  }
 
   changeDirectionIfPossible() {
     if (this.direction == this.nextDirection) return;
@@ -94,9 +102,9 @@ class Pacman {
     this.moveForwards();
     if (this.checkCollision()) {
       this.moveBackwards();
-      this.direction = tempDirection
+      this.direction = tempDirection;
     } else {
-      this.moveBackwards()
+      this.moveBackwards();
     }
   }
 
